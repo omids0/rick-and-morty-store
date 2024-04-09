@@ -9,7 +9,7 @@
     "lint": "next lint",
     "types": "tsc --pretty --noEmit",
     "prepare": "husky install",
-    "format": "prettier --write \"{assets,api,components,hocs,hooks,locales,middleware,pages,types,utils}/**/*.{ts,tsx,js,jsx}\""
+    "format": "prettier --write \"{assets,api,components,middleware,app,types,utils}/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
     "react": "^18",
