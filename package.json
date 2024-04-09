@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "types": "tsc --pretty --noEmit",
+    "prepare": "husky install",
     "format": "prettier --write \"{assets,api,components,hocs,hooks,locales,middleware,pages,types,utils}/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-config-prettier": "@latest",
-    "prettier": "@latest"
+    "prettier": "@latest",
+    "husky": "@latest"
   }
 }
