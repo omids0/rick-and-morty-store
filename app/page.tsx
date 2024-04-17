@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { type FC } from 'react'
+import './globals.css'
 
 import HomePage from 'components/homePage'
 import MainLayout from 'components/mainLayout'
