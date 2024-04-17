@@ -1,19 +1,20 @@
 import { Metadata } from 'next'
 import { type FC } from 'react'
 
-import HomePage from '../components/homePage'
+import HomePage from 'components/homePage'
+import MainLayout from 'components/mainLayout'
 
 export const metadata: Metadata = {
   title: 'Rick and Morty Store',
   description: 'Rick and Morty Home Page'
 }
 
-const Home: FC = () => {
+const App: FC = () => {
   return (
-    <>
+    <MainLayout>
       <HomePage />
-    </>
+    </MainLayout>
   )
 }
 
-export default Home
+export default App
