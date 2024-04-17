@@ -1,13 +1,16 @@
 import Image from 'next/image'
 import { type FC } from 'react'
 
+import Carousel from 'components/molecules/carousel'
 import { productsData } from 'utils/data/product'
 
 const HomePage: FC = () => {
   return (
     <div className="flex flex-col">
-      <div className="w-full h-[50vh] bg-red-500 mb-8">carousel</div>
-      <div className="flex justify-between gap-2">
+      <div className="w-full h-[50vh] mb-8">
+        <Carousel data={productsData} />
+      </div>
+      <div className="flex gap-2 mx-auto flex-wrap">
         {productsData.map(item => (
           <div
             className=" bg-gradient-to-b from-red-400 to-transparent flex flex-col h-[90vh]"
