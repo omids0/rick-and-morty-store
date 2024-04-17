@@ -6,6 +6,7 @@ import { productsData } from 'utils/data/product'
 const HomePage: FC = () => {
   return (
     <div className="flex flex-col">
+      <div className="w-full h-[50vh] bg-red-500 mb-8">carousel</div>
       <div className="flex justify-between gap-2">
         {productsData.map(item => (
           <div
