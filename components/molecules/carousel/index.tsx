@@ -1,4 +1,3 @@
-'use client'
 import { useRef, type FC } from 'react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,9 +6,6 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import './style.css'
-import { ProductsData } from 'types/utils/data/products'
-
-import Image from 'next/image'
 
 type Props = {
   spaceBetween?: number
@@ -18,7 +14,7 @@ type Props = {
   disableOnInteraction?: boolean
   clickablePagination?: boolean
   navigation?: boolean
-  data: ProductsData[]
+  contentData: { element: JSX.Element }[]
 }
 
 const Carousel: FC<Props> = ({
@@ -28,7 +24,7 @@ const Carousel: FC<Props> = ({
   disableOnInteraction = false,
   clickablePagination = true,
   navigation = true,
-  data
+  contentData
 }) => {
   const progressCircle = useRef(null)
 
@@ -56,29 +52,8 @@ const Carousel: FC<Props> = ({
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        {data.map((item, i) => (
-          <SwiperSlide key={i}>
-            <div className="flex">
-              <Image
-                src={`/${item.blouse.image}`}
-                style={{
-                  height: '20rem'
-                }}
-                width={250}
-                height={250}
-                alt={item.blouse.name}
-              />
-              <Image
-                src={`/${item.pants.image}`}
-                style={{
-                  height: '20rem'
-                }}
-                width={250}
-                height={250}
-                alt={item.pants.name}
-              />
-            </div>
-          </SwiperSlide>
+        {contentData?.map((item, i) => (
+          <SwiperSlide key={i}>{item.element}</SwiperSlide>
         ))}
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>

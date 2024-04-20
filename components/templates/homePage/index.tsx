@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import { type FC } from 'react'
 
@@ -5,10 +6,37 @@ import Carousel from 'components/molecules/carousel'
 import { productsData } from 'utils/data/product'
 
 const HomePage: FC = () => {
+  const handleCarouselContent = data => {
+    return data.map(item => ({
+      element: (
+        <div className="flex">
+          <Image
+            src={`/${item.blouse.image}`}
+            style={{
+              height: '20rem'
+            }}
+            width={250}
+            height={250}
+            alt={item.blouse.name}
+          />
+          <Image
+            src={`/${item.pants.image}`}
+            style={{
+              height: '20rem'
+            }}
+            width={250}
+            height={250}
+            alt={item.pants.name}
+          />
+        </div>
+      )
+    }))
+  }
+
   return (
     <div className="flex flex-col">
       <div className="w-full h-[50vh] mb-8">
-        <Carousel data={productsData} />
+        <Carousel contentData={handleCarouselContent(productsData)} />
       </div>
       <div className="flex gap-2 mx-auto flex-wrap">
         {productsData.map(item => (
